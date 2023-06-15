@@ -2,8 +2,8 @@ import React from "react";
 
 const Discount = () => {
   return (
-    <div className="font-bold h-screen justify-center items-center">
-      page under construction to head of design
+    <div className="font-bold text-3xl h-screen flex justify-center items-center">
+      <h1>page under construction to head of design</h1>
     </div>
   );
 };
