@@ -1,5 +1,7 @@
 "use client";
 import Editor from "@/components/Editor";
+import PrimaryButton from "@/components/PrimaryButton";
+import SecondaryButton from "@/components/SecondaryButton";
 import { useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 
@@ -26,7 +28,6 @@ const AddProduct: React.FC = () => {
     setDivFields((prevFields) => prevFields.filter((field) => field.id !== id));
   };
 
-  // const [value, setValue] = useState(""); //for editor
   return (
     <div className="container">
       <h1 className="text-2xl font-semibold mb-3">Add Product</h1>
@@ -69,7 +70,7 @@ const AddProduct: React.FC = () => {
             {divFields.map((field, index) => (
               <div key={field.id}>
                 <div className="flex items-end gap-4 mb-5">
-                  <div>
+                  <div className="w-full">
                     <label className="font-medium mb-2">color</label>
                     <select
                       className="w-full border border-gray-400 rounded-sm p-1"
@@ -81,7 +82,7 @@ const AddProduct: React.FC = () => {
                       <option value="red">red</option>
                     </select>
                   </div>
-                  <div>
+                  <div className="w-full">
                     <label className="font-medium mb-2">Size</label>
                     <select
                       className="w-full border border-gray-400 rounded-sm p-1"
@@ -93,7 +94,7 @@ const AddProduct: React.FC = () => {
                       <option value="red">M</option>
                     </select>
                   </div>
-                  <div>
+                  <div className="w-full">
                     <label className="font-medium mb-2">*Warehouse</label>
                     <select
                       className="w-full border border-gray-400 rounded-sm p-1"
@@ -105,52 +106,54 @@ const AddProduct: React.FC = () => {
                       <option value="red">Uttara</option>
                     </select>
                   </div>
-                  <div>
+                  <div className="w-full">
                     <label className="font-medium mb-2">*Purchase Price</label>
                     <div className="flex items-center">
                       <div className="border border-gray-400 bg-gray-100 rounded-sm px-2 py-[6px] text-sm">
                         BDT
                       </div>
                       <input
-                        className="rounded-sm px-2 py-1 border border-gray-400 focus:outline-none text-gray-500"
+                        className="rounded-sm px-2 py-1 border border-gray-400 focus:outline-none text-gray-500 w-full"
                         id="purchase_price"
                         type="text"
                         placeholder="Purchase Price"
                       />
                     </div>
                   </div>
-                  <div>
+                  <div className="w-full">
                     <label className="font-medium mb-2">*Selling Price</label>
                     <div className="flex items-center">
                       <div className="border border-gray-400 bg-gray-100 rounded-sm px-2 py-[6px] text-sm">
                         BDT
                       </div>
                       <input
-                        className="rounded-sm px-2 py-1 border border-gray-400 focus:outline-none text-gray-500"
+                        className="rounded-sm px-2 py-1 border border-gray-400 focus:outline-none text-gray-500 w-full"
                         id="selling_price"
                         type="text"
                         placeholder="Selling Price"
                       />
                     </div>
                   </div>
-                  <div>
+                  <div className="w-full">
                     <label className="font-medium mb-2">*Initial Stock</label>
                     <div>
                       <input
-                        className="rounded-sm px-2 py-1 border border-gray-400 focus:outline-none text-gray-500"
+                        className="rounded-sm px-2 py-1 border border-gray-400 focus:outline-none text-gray-500 w-full"
                         id="Initial_Stock"
                         type="text"
                         placeholder="Stock Amount"
                       />
                     </div>
                   </div>
-                  <button
-                    onClick={() => removeDivField(field.id)}
-                    disabled={divFields.length === 1} // Disable "-" button when there is only one content
-                    className="w-5 h-5 rounded-full border border-gray-400 flex justify-center items-center mb-2"
-                  >
-                    -
-                  </button>
+                  <div className="w-5">
+                    <button
+                      onClick={() => removeDivField(field.id)}
+                      disabled={divFields.length === 1} // Disable "-" button when there is only one content
+                      className="w-5 h-5 rounded-full border border-gray-400 flex justify-center items-center mb-2"
+                    >
+                      -
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -166,6 +169,10 @@ const AddProduct: React.FC = () => {
         <div className="bg-basic rounded-lg px-6 py-3 flex flex-col gap-y-4">
           <h4 className="font-semibold">Product Description</h4>
           <Editor />
+        </div>
+        <div className="flex justify-end gap-x-3">
+          <PrimaryButton name="Add" />
+          <SecondaryButton name="Cancel" />
         </div>
       </div>
     </div>

@@ -86,11 +86,21 @@ const Sidebar = () => {
   ];
 
   const path = usePathname();
+  // const fix = path.startsWith(path);
+  // console.log(fix);
+
   const [click, setClick] = useState(path);
 
   useEffect(() => {
     setClick(path);
   }, [path]);
+
+  const isActiveLink = (link: string) => {
+    if (link === "/") {
+      return path === "/";
+    }
+    return path.startsWith(link);
+  };
 
   return (
     <div className="flex-1 h-[93.5vh] sticky top-0">
@@ -100,7 +110,7 @@ const Sidebar = () => {
             key={data?._id}
             href={data?.link}
             className={`flex gap-4 items-center pl-3 py-2 rounded-lg ${
-              click === data?.link ? "bg-secondary text-basic" : "bg-basic"
+              isActiveLink(data?.link) ? "bg-secondary text-basic" : "bg-basic"
             }`}
           >
             {data?.icon}

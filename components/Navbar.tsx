@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { AiOutlineBell } from "react-icons/ai";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
@@ -7,13 +8,15 @@ const Navbar = () => {
     <div className="">
       <div className="flex items-center bg-basic py-3 pr-9 border-b">
         <div className="flex-1 flex justify-center">
-          <Image
-            src="/images/nazara-logo.png"
-            alt="nazara main logo"
-            width={248}
-            height={49}
-            className="w-[150px] h-[30px]"
-          />
+          <Link href="/">
+            <Image
+              src="/images/nazara-logo.png"
+              alt="nazara main logo"
+              width={248}
+              height={49}
+              className="w-[150px] h-[30px]"
+            />
+          </Link>
         </div>
         <div className="flex flex-[6] gap-x-6 items-center justify-end">
           <AiOutlineBell color="gray" size={26} />
