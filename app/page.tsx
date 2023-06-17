@@ -1,6 +1,4 @@
 import AreaChart from "@/components/AreaChart";
-import BarChart from "@/components/BarChart";
-import LineChart from "@/components/LineChart";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiCategory } from "react-icons/bi";
 import { BsChatSquareTextFill, BsFillBoxFill } from "react-icons/bs";
@@ -59,16 +57,10 @@ export default function Home() {
       </div>
       <div className="grid grid-cols-2 gap-6 mt-6">
         <div className="w-full bg-basic p-4 rounded-lg">
-          <LineChart />
-        </div>
-        <div className="w-full bg-basic p-4 rounded-lg">
           <AreaChart />
         </div>
         <div className="w-full bg-basic p-4 rounded-lg">
           <PieChart />
-        </div>
-        <div className="w-full bg-basic p-4 rounded-lg">
-          <BarChart />
         </div>
       </div>
     </div>

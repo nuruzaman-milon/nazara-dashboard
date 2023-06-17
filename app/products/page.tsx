@@ -1,11 +1,7 @@
 import UtilityBtn from "@/components/UtilityBtn";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  AiOutlineDownload,
-  AiOutlinePlus,
-  AiOutlineShoppingCart,
-} from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsPlus } from "react-icons/bs";
 
 const Products = () => {

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 
 //editor
-import ReactQuill from "react-quill";
+
 import "react-quill/dist/quill.snow.css";
 interface DivField {
   id: number;
