@@ -58,7 +58,7 @@ const Orders = () => {
                     <button className="text-[#5B94FC]">View</button>
                   </div>
                   <label
-                    htmlFor="my-modal-3"
+                    htmlhtmlFor="my-modal-3"
                     onClick={() => handleChange()}
                     className="text-[#5B94FC] cursor-pointer"
                   >

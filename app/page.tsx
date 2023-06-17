@@ -4,6 +4,9 @@ import { BsChatSquareTextFill, BsFillBoxFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import AreaChart from "@/components/AreaChart";
 import PieChart from "@/components/PieChart";
+import RecentOrder from "@/components/home/RecentOrder";
+import RecentCustomer from "@/components/home/RecentCustomer";
+import Product from "@/components/Product";
 
 interface CardDataItem {
   icon: JSX.Element;
@@ -70,6 +73,20 @@ const Home = (): JSX.Element => {
         <div className="w-full bg-basic p-4 rounded-lg">
           <PieChart />
         </div>
+      </div>
+      <div className="grid grid-cols-2 gap-6 mt-6">
+        <div className="w-full bg-basic p-4 rounded-lg">
+          <h1 className="font-semibold text-md mb-3 ml-3">Recent Orders</h1>
+          <RecentOrder />
+        </div>
+        <div className="w-full bg-basic p-4 rounded-lg">
+          <h1 className="font-semibold text-md mb-3 ml-3">Recent Customers</h1>
+          <RecentCustomer />
+        </div>
+      </div>
+      <div className="mt-6">
+        <h1 className="font-semibold text-md mb-3 ml-3">Recent Products</h1>
+        <Product />
       </div>
     </div>
   );

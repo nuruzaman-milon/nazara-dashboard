@@ -1,3 +1,4 @@
+import Editor from "./Editor";
 import OutlineButton from "./OutlineButton";
 import PrimaryButton from "./PrimaryButton";
 
@@ -12,10 +13,13 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
         <>
           <input type="checkbox" id="my-modal-3" className="modal-toggle" />
           <div className="modal overflow-y-scroll lg:overflow-auto">
-            <div className="modal-box bg-white max-h-min max-w-min mt-[29rem] lg:mt-0">
+            <div className="modal-box bg-white max-h-min min-w-max mt-[29rem] lg:mt-0">
               <div className="bg-gray-200 py-2 flex justify-between px-4">
                 <h3 className="text-lg font-bold ">Measurement Details</h3>
-                <label htmlFor="my-modal-3" className="btn btn-sm btn-circle">
+                <label
+                  htmlhtmlFor="my-modal-3"
+                  className="btn btn-sm btn-circle"
+                >
                   ✕
                 </label>
               </div>
@@ -52,7 +56,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                     <div className="flex">
                       <div className="flex flex-col gap-y-3">
                         <div className="w-40 flex justify-between">
-                          <label htmlFor="chest">
+                          <label htmlhtmlFor="chest">
                             <span className="label-text">Chest:</span>
                           </label>
                           <input
@@ -62,7 +66,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-40 flex justify-between">
-                          <label htmlFor="waist">
+                          <label htmlhtmlFor="waist">
                             <span className="label-text">Waist:</span>
                           </label>
                           <input
@@ -72,7 +76,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-40 flex justify-between">
-                          <label htmlFor="hip">
+                          <label htmlhtmlFor="hip">
                             <span className="label-text">Hip:</span>
                           </label>
                           <input
@@ -82,7 +86,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-40 flex justify-between">
-                          <label htmlFor="end">
+                          <label htmlhtmlFor="end">
                             <span className="label-text">End:</span>
                           </label>
                           <input
@@ -92,7 +96,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-40 flex justify-between">
-                          <label htmlFor="shoulder">
+                          <label htmlhtmlFor="shoulder">
                             <span className="label-text">Shoulder:</span>
                           </label>
                           <input
@@ -102,7 +106,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-40 flex justify-between">
-                          <label htmlFor="armHole">
+                          <label htmlhtmlFor="armHole">
                             <span className="label-text">Arm Hole:</span>
                           </label>
                           <input
@@ -112,7 +116,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-40 flex justify-between">
-                          <label htmlFor="sleeveL">
+                          <label htmlhtmlFor="sleeveL">
                             <span className="label-text">Sleeve L:</span>
                           </label>
                           <input
@@ -122,7 +126,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-40 flex justify-between">
-                          <label htmlFor="muscle">
+                          <label htmlhtmlFor="muscle">
                             <span className="label-text">Muscle:</span>
                           </label>
                           <input
@@ -134,7 +138,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                       </div>
                       <div className="ml-6 flex flex-col gap-y-3">
                         <div className="w-44 flex justify-between">
-                          <label htmlFor="handOpening">
+                          <label htmlhtmlFor="handOpening">
                             <span className="label-text">Hand Opening:</span>
                           </label>
                           <input
@@ -144,7 +148,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-44 flex justify-between">
-                          <label htmlFor="length">
+                          <label htmlhtmlFor="length">
                             <span className="label-text">Length:</span>
                           </label>
                           <input
@@ -154,7 +158,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-44 flex justify-between">
-                          <label htmlFor="slit">
+                          <label htmlhtmlFor="slit">
                             <span className="label-text">Slit:</span>
                           </label>
                           <input
@@ -164,7 +168,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-44 flex justify-between">
-                          <label htmlFor="neckDeepF">
+                          <label htmlhtmlFor="neckDeepF">
                             <span className="label-text">Neck Deep (f):</span>
                           </label>
                           <input
@@ -174,7 +178,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-44 flex justify-between">
-                          <label htmlFor="neckDeepB">
+                          <label htmlhtmlFor="neckDeepB">
                             <span className="label-text">Neck Deep (b):</span>
                           </label>
                           <input
@@ -184,7 +188,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                           />
                         </div>
                         <div className="w-44 flex justify-between">
-                          <label htmlFor="halfBody">
+                          <label htmlhtmlFor="halfBody">
                             <span className="label-text">Half Body:</span>
                           </label>
                           <input
@@ -235,7 +239,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                     {/* {{-- input  --}} */}
                     <div className="flex flex-col gap-3">
                       <div className="flex justify-between">
-                        <label htmlFor="length2">
+                        <label htmlhtmlFor="length2">
                           <span className="label-text">Length:</span>
                         </label>
                         <input
@@ -245,7 +249,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                         />
                       </div>
                       <div className="flex justify-between">
-                        <label htmlFor="waist2">
+                        <label htmlhtmlFor="waist2">
                           <span className="label-text">Waist:</span>
                         </label>
                         <input
@@ -255,7 +259,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                         />
                       </div>
                       <div className="flex justify-between">
-                        <label htmlFor="hip2">
+                        <label htmlhtmlFor="hip2">
                           <span className="label-text">Hip:</span>
                         </label>
                         <input
@@ -265,7 +269,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                         />
                       </div>
                       <div className="flex justify-between">
-                        <label htmlFor="thigh2">
+                        <label htmlhtmlFor="thigh2">
                           <span className="label-text">Thigh:</span>
                         </label>
                         <input
@@ -275,7 +279,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                         />
                       </div>
                       <div className="flex justify-between">
-                        <label htmlFor="knee2">
+                        <label htmlhtmlFor="knee2">
                           <span className="label-text">Knee:</span>
                         </label>
                         <input
@@ -285,7 +289,7 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                         />
                       </div>
                       <div className="flex justify-between">
-                        <label htmlFor="legOpenning2">
+                        <label htmlhtmlFor="legOpenning2">
                           <span className="label-text">Leg Openning:</span>
                         </label>
                         <input
@@ -297,21 +301,17 @@ const OrderMeasurement: React.FC<OrderMeasurementProps> = ({ openModal }) => {
                     </div>
                   </div>
                 </div>
-                <div className="w-[30%]">
+                <div className="w-full">
                   <div className="">
                     {/* {{-- title  --}} */}
                     <h1 className="text-2xl font-medium mb-4">Extra Note</h1>
                     {/* {{-- text field  --}} */}
-                    <textarea
-                      className="ckeditor"
-                      name="description"
-                      id="editor"
-                    ></textarea>
+                    <Editor />
                   </div>
                 </div>
               </div>
               <div className="modal-action">
-                <label className="flex gap-2" htmlFor="my-modal-3">
+                <label className="flex gap-2" htmlhtmlFor="my-modal-3">
                   <PrimaryButton name="Update" />
                   <OutlineButton name="Cancel" />
                 </label>

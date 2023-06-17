@@ -32,7 +32,7 @@ const AddProduct: React.FC = () => {
         <div className="bg-basic rounded-lg px-6 py-3 flex flex-col gap-y-4">
           <h4 className="font-semibold">Product Information</h4>
           <div>
-            <label className="font-medium" htmlFor="name">
+            <label className="font-medium" htmlhtmlFor="name">
               Product Name
             </label>
             <input
@@ -43,7 +43,7 @@ const AddProduct: React.FC = () => {
             />
           </div>
           <div>
-            <label className="font-medium" htmlFor="category">
+            <label className="font-medium" htmlhtmlFor="category">
               Product Category
             </label>
             <div className="relative w-96">
