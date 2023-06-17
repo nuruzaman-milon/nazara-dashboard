@@ -5,9 +5,6 @@ import SecondaryButton from "@/components/SecondaryButton";
 import { useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 
-//editor
-
-import "react-quill/dist/quill.snow.css";
 interface DivField {
   id: number;
 }

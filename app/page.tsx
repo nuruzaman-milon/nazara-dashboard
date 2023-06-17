@@ -1,12 +1,19 @@
-import AreaChart from "@/components/AreaChart";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiCategory } from "react-icons/bi";
 import { BsChatSquareTextFill, BsFillBoxFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
+import AreaChart from "@/components/AreaChart";
 import PieChart from "@/components/PieChart";
 
-export default function Home() {
-  const cardData = [
+interface CardDataItem {
+  icon: JSX.Element;
+  text: string;
+  bgColor: string;
+  value: number;
+}
+
+const Home = (): JSX.Element => {
+  const cardData: CardDataItem[] = [
     {
       icon: <BiCategory size={24} />,
       text: "Total Category",
@@ -38,20 +45,21 @@ export default function Home() {
       value: 4,
     },
   ];
+
   return (
     <div className="container">
       {/* cart  */}
       <div className="grid grid-cols-5 gap-x-10">
         {cardData.map((data) => (
           <div
-            key={data?.text}
-            className={`${data?.bgColor} rounded-lg flex items-center justify-between p-6 text-white`}
+            key={data.text}
+            className={`${data.bgColor} rounded-lg flex items-center justify-between p-6 text-white`}
           >
             <div>
-              <div>{data?.icon}</div>
-              <p className="mt-3 font-medium">{data?.text}</p>
+              <div>{data.icon}</div>
+              <p className="mt-3 font-medium">{data.text}</p>
             </div>
-            <p className="text-3xl font-semibold">{data?.value}</p>
+            <p className="text-3xl font-semibold">{data.value}</p>
           </div>
         ))}
       </div>
@@ -65,4 +73,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default Home;
