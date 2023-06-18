@@ -11,7 +11,7 @@ const AddProduct: React.FC = () => {
           <div className="flex flex-1 flex-col gap-y-4">
             <h4 className="font-semibold">Create new discount offer</h4>
             <div>
-              <label className="font-medium" htmlhtmlFor="name">
+              <label className="font-medium" htmlFor="name">
                 Offer type
               </label>
               <input
@@ -22,7 +22,7 @@ const AddProduct: React.FC = () => {
               />
             </div>
             <div>
-              <label className="font-medium" htmlhtmlFor="category">
+              <label className="font-medium" htmlFor="category">
                 Promo Code
               </label>
               <div className="relative w-96">
@@ -43,7 +43,7 @@ const AddProduct: React.FC = () => {
 
           <div className="flex flex-1 items-center justify-center">
             <label
-              htmlhtmlFor="dropzone-file"
+              htmlFor="dropzone-file"
               className="flex flex-col items-center justify-center w-64 h-52 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
             >
               <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -77,7 +77,7 @@ const AddProduct: React.FC = () => {
         <div className="bg-basic rounded-lg px-6 py-3 flex flex-col gap-y-4">
           <div className="flex gap-10 w-full">
             <div className="w-full">
-              <label className="font-medium" htmlhtmlFor="name">
+              <label className="font-medium" htmlFor="name">
                 Free Shipping
               </label>
               <input
@@ -88,7 +88,7 @@ const AddProduct: React.FC = () => {
               />
             </div>
             <div className="w-full">
-              <label className="font-medium" htmlhtmlFor="name">
+              <label className="font-medium" htmlFor="name">
                 Amount Off
               </label>
               <input
@@ -101,7 +101,7 @@ const AddProduct: React.FC = () => {
           </div>
           <div className="flex gap-10 w-full">
             <div className="w-full">
-              <label className="font-medium" htmlhtmlFor="name">
+              <label className="font-medium" htmlFor="name">
                 Offer Expire
               </label>
               <input
@@ -112,7 +112,7 @@ const AddProduct: React.FC = () => {
               />
             </div>
             <div className="w-full">
-              <label className="font-medium" htmlhtmlFor="name">
+              <label className="font-medium" htmlFor="name">
                 Min Purchase Amount
               </label>
               <input

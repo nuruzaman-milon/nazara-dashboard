@@ -6,6 +6,7 @@ import OrderMeasurement from "@/components/OrderMeasurement";
 import ProcessingStatus from "@/components/ProcessingStatus";
 import UtilityBtn from "@/components/UtilityBtn";
 import { AiOutlineDownload, AiOutlineShoppingCart } from "react-icons/ai";
+import Link from "next/link";
 
 const Orders = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -53,12 +54,14 @@ const Orders = () => {
                 </td>
                 <td>
                   <div>
-                    <button className="text-[#5B94FC]">Update</button>
+                    <Link href="/orders/qeqweqw">
+                      <button className="text-[#5B94FC]">Update</button>
+                    </Link>
                     <span className="text-[#3b7ffd]"> | </span>
                     <button className="text-[#5B94FC]">View</button>
                   </div>
                   <label
-                    htmlhtmlFor="my-modal-3"
+                    htmlFor="my-modal-3"
                     onClick={() => handleChange()}
                     className="text-[#5B94FC] cursor-pointer"
                   >
@@ -76,7 +79,9 @@ const Orders = () => {
                 </td>
                 <td>
                   <div>
-                    <button className="text-[#5B94FC]">Update</button>
+                    <Link href="/orders/qeqweqw">
+                      <button className="text-[#5B94FC]">Update</button>
+                    </Link>
                     <span className="text-[#3b7ffd]"> | </span>
                     <button className="text-[#5B94FC]">View</button>
                   </div>
@@ -93,7 +98,9 @@ const Orders = () => {
                 </td>
                 <td>
                   <div>
-                    <button className="text-[#5B94FC]">Update</button>
+                    <Link href="/orders/qeqweqw">
+                      <button className="text-[#5B94FC]">Update</button>
+                    </Link>
                     <span className="text-[#3b7ffd]"> | </span>
                     <button className="text-[#5B94FC]">View</button>
                   </div>
@@ -110,7 +117,9 @@ const Orders = () => {
                 </td>
                 <td>
                   <div>
-                    <button className="text-[#5B94FC]">Update</button>
+                    <Link href="/orders/qeqweqw">
+                      <button className="text-[#5B94FC]">Update</button>
+                    </Link>
                     <span className="text-[#3b7ffd]"> | </span>
                     <button className="text-[#5B94FC]">View</button>
                   </div>

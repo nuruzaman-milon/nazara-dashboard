@@ -64,7 +64,7 @@ const OrderUpdate = () => {
           {/* start part  */}
           <div className="flex flex-col gap-y-4">
             <div className="flex items-center">
-              <label className="w-56" htmlhtmlFor="status">
+              <label className="w-56" htmlFor="status">
                 *status:{" "}
               </label>
               <select
@@ -78,14 +78,14 @@ const OrderUpdate = () => {
               </select>
             </div>
             <div className="flex">
-              <label className="w-56" htmlhtmlFor="status">
+              <label className="w-56" htmlFor="status">
                 *status:{" "}
               </label>
               <p className="w-full">10%</p>
             </div>
 
             <div className="flex items-center">
-              <label className="w-56" htmlhtmlFor="status">
+              <label className="w-56" htmlFor="status">
                 New Payment:
               </label>
               <input
@@ -96,7 +96,7 @@ const OrderUpdate = () => {
               />
             </div>
             <div className="flex items-center">
-              <label className="w-56" htmlhtmlFor="payment">
+              <label className="w-56" htmlFor="payment">
                 Payment Method:
               </label>
               <select
@@ -111,7 +111,7 @@ const OrderUpdate = () => {
             </div>
 
             <div className="flex items-center">
-              <label className="w-56" htmlhtmlFor="courier">
+              <label className="w-56" htmlFor="courier">
                 Courier:
               </label>
               <select
@@ -126,7 +126,7 @@ const OrderUpdate = () => {
             </div>
 
             <div className="flex items-center">
-              <label className="w-56" htmlhtmlFor="deliveryCharge">
+              <label className="w-56" htmlFor="deliveryCharge">
                 *Delivery Charge:
               </label>
               <input
@@ -137,7 +137,7 @@ const OrderUpdate = () => {
               />
             </div>
             <div className="flex items-center">
-              <label className="w-56" htmlhtmlFor="deliveryCost">
+              <label className="w-56" htmlFor="deliveryCost">
                 *Delivery Cost:
               </label>
               <input
@@ -148,7 +148,7 @@ const OrderUpdate = () => {
               />
             </div>
             <div className="flex items-center">
-              <label className="w-56" htmlhtmlFor="deliveryDate">
+              <label className="w-56" htmlFor="deliveryDate">
                 *Delivery Date:
               </label>
               <input
@@ -160,7 +160,7 @@ const OrderUpdate = () => {
             </div>
 
             <div className="flex items-center">
-              <label className="w-56" htmlhtmlFor="shippingAddress">
+              <label className="w-56" htmlFor="shippingAddress">
                 Shipping Address:
               </label>
               <input
@@ -171,7 +171,7 @@ const OrderUpdate = () => {
               />
             </div>
             <div className="flex items-center">
-              <label className="w-56" htmlhtmlFor="shippingAddress">
+              <label className="w-56" htmlFor="shippingAddress">
                 Remarks:
               </label>
               <textarea

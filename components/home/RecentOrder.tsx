@@ -1,6 +1,7 @@
 import React from "react";
 import SecondaryButton from "../SecondaryButton";
 import PrimaryButton from "../PrimaryButton";
+import Link from "next/link";
 
 const RecentOrder = () => {
   return (
@@ -22,7 +23,9 @@ const RecentOrder = () => {
             <td>1</td>
             <td>May, 29 2023</td>
             <td className="flex gap-2">
-              <SecondaryButton name="Edit" />
+              <Link href="/orders/aswfasda">
+                <SecondaryButton name="Edit" />
+              </Link>
               <PrimaryButton name="Delete" />
             </td>
           </tr>
@@ -31,7 +34,9 @@ const RecentOrder = () => {
             <td>1</td>
             <td>May, 29 2023</td>
             <td className="flex gap-2">
-              <SecondaryButton name="Edit" />
+              <Link href="/orders/aswfasda">
+                <SecondaryButton name="Edit" />
+              </Link>
               <PrimaryButton name="Delete" />
             </td>
           </tr>
@@ -40,7 +45,9 @@ const RecentOrder = () => {
             <td>1</td>
             <td>May, 29 2023</td>
             <td className="flex gap-2">
-              <SecondaryButton name="Edit" />
+              <Link href="/orders/aswfasda">
+                <SecondaryButton name="Edit" />
+              </Link>
               <PrimaryButton name="Delete" />
             </td>
           </tr>
@@ -49,7 +56,9 @@ const RecentOrder = () => {
             <td>1</td>
             <td>May, 29 2023</td>
             <td className="flex gap-2">
-              <SecondaryButton name="Edit" />
+              <Link href="/orders/aswfasda">
+                <SecondaryButton name="Edit" />
+              </Link>
               <PrimaryButton name="Delete" />
             </td>
           </tr>
