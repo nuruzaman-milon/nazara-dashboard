@@ -7,3 +7,16 @@
     @apply w-[96%] my-6 mx-auto;
   }
 }
+
+.login-bg{
+  background-image: url("/images/login-bg1.png");
+  background-size: cover;
+  background-position: center; 
+}
+
+
+/* quill */
+.quill-content .ql-container{
+  height: 24vh;
+  max-width: 100%;
+}

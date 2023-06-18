@@ -230,11 +230,6 @@ const Orders = () => {
               </tr>
             </tbody>
           </table>
-          {/* <CustomerViewProfileDrawer
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          toggleDrawer={toggleDrawer}
-        /> */}
         </div>
       </div>
       <OrderMeasurement openModal={openModal} />
