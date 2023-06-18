@@ -1,3 +1,5 @@
+"use client";
+import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -15,14 +17,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const router = usePathname();
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <div className="flex gap-x-6">
-          <Sidebar />
-          <main className="flex-[6] bg-primary">{children}</main>
-        </div>
+        {router === "/login" ? (
+          children
+        ) : (
+          <>
+            <Navbar />
+            <div className="flex gap-x-6">
+              <Sidebar />
+              <main className="flex-[6] bg-primary">{children}</main>
+            </div>
+          </>
+        )}
       </body>
     </html>
   );

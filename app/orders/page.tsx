@@ -1,10 +1,20 @@
+"use client";
 import CancelStatus from "@/components/CancelStatus";
+import React, { useState } from "react";
 import CompleteStatus from "@/components/CompleteStatus";
+import OrderMeasurement from "@/components/OrderMeasurement";
 import ProcessingStatus from "@/components/ProcessingStatus";
 import UtilityBtn from "@/components/UtilityBtn";
 import { AiOutlineDownload, AiOutlineShoppingCart } from "react-icons/ai";
 
 const Orders = () => {
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleChange = (): void => {
+    setOpenModal(true);
+  };
+  console.log(openModal);
+
   return (
     <div>
       <div className="container">
@@ -47,7 +57,13 @@ const Orders = () => {
                     <span className="text-[#3b7ffd]"> | </span>
                     <button className="text-[#5B94FC]">View</button>
                   </div>
-                  <button className="text-[#5B94FC]">Measurement</button>
+                  <label
+                    htmlhtmlFor="my-modal-3"
+                    onClick={() => handleChange()}
+                    className="text-[#5B94FC] cursor-pointer"
+                  >
+                    Measurement
+                  </label>
                 </td>
               </tr>
               <tr>
@@ -212,6 +228,7 @@ const Orders = () => {
         /> */}
         </div>
       </div>
+      <OrderMeasurement openModal={openModal} />
     </div>
   );
 };

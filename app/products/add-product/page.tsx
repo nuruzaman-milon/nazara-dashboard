@@ -5,9 +5,6 @@ import SecondaryButton from "@/components/SecondaryButton";
 import { useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 
-//editor
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 interface DivField {
   id: number;
 }
@@ -35,7 +32,7 @@ const AddProduct: React.FC = () => {
         <div className="bg-basic rounded-lg px-6 py-3 flex flex-col gap-y-4">
           <h4 className="font-semibold">Product Information</h4>
           <div>
-            <label className="font-medium" htmlFor="name">
+            <label className="font-medium" htmlhtmlFor="name">
               Product Name
             </label>
             <input
@@ -46,7 +43,7 @@ const AddProduct: React.FC = () => {
             />
           </div>
           <div>
-            <label className="font-medium" htmlFor="category">
+            <label className="font-medium" htmlhtmlFor="category">
               Product Category
             </label>
             <div className="relative w-96">
