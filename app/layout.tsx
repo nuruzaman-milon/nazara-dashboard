@@ -2,10 +2,9 @@
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
-import { Inter } from "next/font/google";
 import Sidebar from "@/components/Sidebar";
-
-const inter = Inter({ subsets: ["latin"] });
+import { store } from "./store";
+import { Provider } from "react-redux";
 
 export const metadata = {
   title: "Create Next App",
@@ -20,18 +19,20 @@ export default function RootLayout({
   const router = usePathname();
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {router === "/login" ? (
-          children
-        ) : (
-          <>
-            <Navbar />
-            <div className="flex gap-x-6">
-              <Sidebar />
-              <main className="flex-[6] bg-primary">{children}</main>
-            </div>
-          </>
-        )}
+      <body>
+        <Provider store={store}>
+          {router === "/login" ? (
+            children
+          ) : (
+            <>
+              <Navbar />
+              <div className="flex gap-x-6">
+                <Sidebar />
+                <main className="flex-[6] bg-primary">{children}</main>
+              </div>
+            </>
+          )}
+        </Provider>
       </body>
     </html>
   );
