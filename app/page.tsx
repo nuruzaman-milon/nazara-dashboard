@@ -8,7 +8,7 @@ import PieChart from "@/components/PieChart";
 import RecentOrder from "@/components/home/RecentOrder";
 import RecentCustomer from "@/components/home/RecentCustomer";
 import Product from "@/components/Product";
-import { useContactsQuery } from "@/services/contactApi";
+import { useGetContactsQuery } from "@/services/contactApi";
 
 interface CardDataItem {
   icon: JSX.Element;
@@ -51,7 +51,10 @@ const Home = (): JSX.Element => {
     },
   ];
 
-  const { data, error, isLoading, isFetching, isSuccess } = useContactsQuery();
+  const { data, error, isLoading, isFetching, isSuccess, isUninitialized } =
+    useGetContactsQuery();
+
+  data != undefined && console.log("data", data);
 
   return (
     <div className="container">
