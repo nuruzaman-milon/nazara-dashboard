@@ -1,5 +1,9 @@
 "use client";
 import PrimaryButton from "@/components/PrimaryButton";
+import {
+  useGetCategoriesQuery,
+  useGetCategoryByIdQuery,
+} from "@/services/categoryApi";
 import React from "react";
 import toast from "react-hot-toast";
 import { MdDelete } from "react-icons/md";
@@ -38,6 +42,14 @@ const Category = () => {
       duration: 3000, // Duration for which the toast is shown (in milliseconds)
     });
   };
+
+  const { data: allCategoriesData, isLoading: allCategoriesLoading } =
+    useGetCategoriesQuery();
+  const { data: singleCategoryData, isLoading: singleCategoryLoading } =
+    useGetCategoryByIdQuery("64730fdcc66a99ef4bc0a71e");
+  // console.log(useGetCategoriesQuery());
+  // !isLoading && console.log("getdata", data);
+  !singleCategoryLoading && console.log("getsingledata", singleCategoryData);
 
   return (
     <div className="flex gap-10 container">
@@ -158,10 +170,9 @@ const Category = () => {
               className="w-full border border-gray-400 rounded-sm p-2 focus:outline-none text-gray-500"
               name="status"
               id="status"
+              defaultValue={"Choose Status"}
             >
-              <option selected disabled>
-                Choose Status
-              </option>
+              <option disabled>Choose Status</option>
               <option value="Draft">Draft</option>
               <option value="Publish">Publish</option>
             </select>
@@ -207,10 +218,9 @@ const Category = () => {
                   className="w-full border border-gray-400 rounded-sm p-2 focus:outline-none text-gray-500"
                   name="status"
                   id="status"
+                  defaultValue={"Choose Status"}
                 >
-                  <option selected disabled>
-                    Choose Status
-                  </option>
+                  <option disabled>Choose Status</option>
                   <option value="Draft">Draft</option>
                   <option value="Publish">Publish</option>
                 </select>
