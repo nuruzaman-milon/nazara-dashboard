@@ -42,9 +42,8 @@ const Editor = () => {
     "image",
   ];
 
-  console.log(text);
   return (
-    <div>
+    <div className="quill-content">
       <ReactQuill
         value={text}
         modules={modules}
