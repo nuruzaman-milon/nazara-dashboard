@@ -1,3 +1,4 @@
+"use client";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiCategory } from "react-icons/bi";
 import { BsChatSquareTextFill, BsFillBoxFill } from "react-icons/bs";
@@ -7,6 +8,7 @@ import PieChart from "@/components/PieChart";
 import RecentOrder from "@/components/home/RecentOrder";
 import RecentCustomer from "@/components/home/RecentCustomer";
 import Product from "@/components/Product";
+import { useGetContactByIDQuery } from "@/services/contactApi";
 
 interface CardDataItem {
   icon: JSX.Element;
@@ -49,6 +51,17 @@ const Home = (): JSX.Element => {
     },
   ];
 
+  const {
+    data: datas,
+    error,
+    isLoading,
+    isFetching,
+    isSuccess,
+    isUninitialized,
+  } = useGetContactByIDQuery("64731c5526d071ac04063cfc");
+
+  datas != undefined && console.log("data", datas);
+
   return (
     <div className="container">
       {/* cart  */}
@@ -74,6 +87,7 @@ const Home = (): JSX.Element => {
           <PieChart />
         </div>
       </div>
+
       <div className="grid grid-cols-2 gap-6 mt-6">
         <div className="w-full bg-basic p-4 rounded-lg">
           <h1 className="font-semibold text-md mb-3 ml-3">Recent Orders</h1>

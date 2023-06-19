@@ -3,6 +3,8 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import { store } from "./store";
+import { Provider } from "react-redux";
 import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
@@ -14,19 +16,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {router === "/nazara-admin" ? (
-          children
-        ) : (
-          <>
-            <Navbar />
-            <div className="flex gap-x-6">
-              <Sidebar />
-              <main className="flex-[6] bg-primary">{children}</main>
-            </div>
-          </>
-        )}
-        {/* it use here that we can use toast on any page */}
-        <Toaster position="top-center" reverseOrder={false} />
+        <Provider store={store}>
+          {router === "/login" ? (
+            children
+          ) : (
+            <>
+              <Navbar />
+              <div className="flex gap-x-6">
+                <Sidebar />
+                <main className="flex-[6] bg-primary">{children}</main>
+              </div>
+            </>
+          )}
+        </Provider>
       </body>
     </html>
   );
