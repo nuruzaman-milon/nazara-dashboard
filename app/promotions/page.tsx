@@ -7,7 +7,7 @@ import { RxCross2 } from "react-icons/rx";
 import { TbEdit } from "react-icons/tb";
 import Swal from "sweetalert2";
 
-const Category = () => {
+const Promotions = () => {
   //show handle delete conformation message
   const handleDeleteConfirmation = () => {
     Swal.fire({
@@ -20,18 +20,17 @@ const Category = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Your category has been deleted.", "success");
+        Swal.fire("Deleted!", "Your promotion has been deleted.", "success");
       }
     });
   };
 
   //show success toast
   const showSuccessToast = () => {
-    toast.success("Category updated!", {
+    toast.success("Promotion updated!", {
       duration: 3000, // Duration for which the toast is shown (in milliseconds)
     });
   };
-
   //show create success toast
   const showCreateSuccessToast = () => {
     toast.success("Promotion Created!", {
@@ -43,13 +42,13 @@ const Category = () => {
     <div className="flex gap-10 container">
       {/* show all category  */}
       <div className="flex-[6] overflow-x-auto">
-        <h1 className="text-lg font-semibold mb-2">All Categories</h1>
+        <h1 className="text-lg font-semibold mb-2">All Promotions</h1>
         <table className="table bg-basic">
           {/* head */}
           <thead className="">
             <tr>
               <th>SL</th>
-              <th>Category Name</th>
+              <th>Promotion Name</th>
               <th>Status</th>
               <th>Actions</th>
             </tr>
@@ -58,7 +57,7 @@ const Category = () => {
             {/* row 1 */}
             <tr>
               <td>1</td>
-              <td>Lehenga</td>
+              <td>Regular Wear</td>
               <td className="text-red-600 font-medium">Draft</td>
               <td>
                 <div className="flex">
@@ -73,7 +72,7 @@ const Category = () => {
             </tr>
             <tr>
               <td>1</td>
-              <td>Lehenga</td>
+              <td>Regular Wear</td>
               <td className="text-green-600 font-medium">Publish</td>
               <td>
                 <div className="flex">
@@ -88,7 +87,7 @@ const Category = () => {
             </tr>
             <tr>
               <td>1</td>
-              <td>Lehenga</td>
+              <td>Winter Collection</td>
               <td className="text-green-600 font-medium">Publish</td>
               <td>
                 <div className="flex">
@@ -103,7 +102,7 @@ const Category = () => {
             </tr>
             <tr>
               <td>1</td>
-              <td>Lehenga</td>
+              <td>Regular Wear</td>
               <td className="text-green-600 font-medium">Publish</td>
               <td>
                 <div className="flex">
@@ -118,7 +117,7 @@ const Category = () => {
             </tr>
             <tr>
               <td>1</td>
-              <td>Lehenga</td>
+              <td>Regular Wear</td>
               <td className="text-green-600 font-medium">Publish</td>
               <td>
                 <div className="flex">
@@ -137,11 +136,11 @@ const Category = () => {
 
       {/* add new category  */}
       <div className="flex-[3]">
-        <h1 className="text-lg font-semibold mb-2">Add New Category</h1>
+        <h1 className="text-lg font-semibold mb-2">Add New Promotion</h1>
         <div className="bg-white p-3 flex flex-col gap-y-3 rounded-xl">
           <div>
             <label className="font-medium" htmlFor="name">
-              Category Name:
+              Promotion Name:
             </label>
             <input
               className="block w-full p-2 border border-gray-400 focus:outline-none text-gray-500 mt-1"
@@ -186,11 +185,13 @@ const Category = () => {
             <RxCross2 />
           </label>
           <div className="flex-[3]">
-            <h1 className="text-lg font-semibold mb-2 ml-3">Update Category</h1>
+            <h1 className="text-lg font-semibold mb-2 ml-3">
+              Update Promotion
+            </h1>
             <div className="bg-white p-3 flex flex-col gap-y-3 rounded-xl">
               <div>
                 <label className="font-medium" htmlFor="name">
-                  Category Name:
+                  Promotion Name:
                 </label>
                 <input
                   className="block w-full p-2 border border-gray-400 focus:outline-none text-gray-500 mt-1"
@@ -233,4 +234,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Promotions;

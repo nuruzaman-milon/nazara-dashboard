@@ -1,6 +1,6 @@
 "use client";
 import { RxDashboard } from "react-icons/rx";
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt, FaWarehouse } from "react-icons/fa";
 import { SiGoogleanalytics } from "react-icons/si";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { usePathname } from "next/navigation";
@@ -10,7 +10,11 @@ import {
   BsChatRightText,
   BsFillFileEarmarkSpreadsheetFill,
 } from "react-icons/bs";
-import { MdDiscount, MdOutlineDashboardCustomize } from "react-icons/md";
+import {
+  MdCategory,
+  MdDiscount,
+  MdOutlineDashboardCustomize,
+} from "react-icons/md";
 import { TbSpeakerphone } from "react-icons/tb";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -21,73 +25,83 @@ const Sidebar = () => {
       _id: "100",
       title: "Dashboard",
       link: "/",
-      icon: <RxDashboard />,
+      icon: <RxDashboard size={18} />,
     },
     {
       _id: "101",
       title: "Customer",
       link: "/customers",
-      icon: <FaUserAlt />,
+      icon: <FaUserAlt size={18} />,
     },
     {
       _id: "102",
       title: "Analytics",
       link: "/analytics",
-      icon: <SiGoogleanalytics />,
+      icon: <SiGoogleanalytics size={18} />,
     },
     {
       _id: "103",
       title: "Orders",
       link: "/orders",
-      icon: <AiOutlineShoppingCart />,
+      icon: <AiOutlineShoppingCart size={18} />,
+    },
+    {
+      _id: "203",
+      title: "Category",
+      link: "/category",
+      icon: <MdCategory size={18} />,
     },
     {
       _id: "104",
       title: "Products",
       link: "/products",
-      icon: <BsFillBoxFill />,
+      icon: <BsFillBoxFill size={18} />,
     },
     {
       _id: "105",
       title: "Transactions",
       link: "/transactions",
-      icon: <BsFillFileEarmarkSpreadsheetFill />,
+      icon: <BsFillFileEarmarkSpreadsheetFill size={18} />,
     },
     {
       _id: "106",
       title: "Promotions",
       link: "/promotions",
-      icon: <TbSpeakerphone />,
+      icon: <TbSpeakerphone size={18} />,
     },
     {
       _id: "107",
       title: "Discounts",
       link: "/discounts",
-      icon: <MdDiscount size={20} />,
+      icon: <MdDiscount size={18} />,
+    },
+    {
+      _id: "207",
+      title: "Warehouse",
+      link: "/warehouses",
+      icon: <FaWarehouse size={18} />,
     },
     {
       _id: "108",
       title: "Message",
       link: "/message",
-      icon: <BsChatLeftText />,
+      icon: <BsChatLeftText size={18} />,
     },
     {
       _id: "109",
       title: "Appointment",
       link: "/appointment",
-      icon: <BsChatRightText />,
+      icon: <BsChatRightText size={18} />,
     },
     {
       _id: "110",
       title: "Customization",
       link: "/customization",
-      icon: <MdOutlineDashboardCustomize />,
+      icon: <MdOutlineDashboardCustomize size={18} />,
     },
   ];
 
   const path = usePathname();
-  // const fix = path.startsWith(path);
-  // console.log(fix);
 
   const [click, setClick] = useState(path);
 
@@ -113,8 +127,14 @@ const Sidebar = () => {
               isActiveLink(data?.link) ? "bg-secondary text-basic" : "bg-basic"
             }`}
           >
-            {data?.icon}
-            {data?.title}
+            <p
+              className={`${
+                isActiveLink(data?.link) ? "text-white" : "text-gray-500"
+              }`}
+            >
+              {data?.icon}
+            </p>
+            <p className="font-semibold">{data?.title}</p>
           </Link>
         ))}
       </div>

@@ -31,7 +31,7 @@ const AddProduct: React.FC = () => {
       <div className="flex flex-col gap-y-5">
         <div className="bg-basic rounded-lg px-6 py-3 flex flex-col gap-y-4">
           <h4 className="text-lg font-bold">Product Information</h4>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4 items-start">
             {/* start  */}
             <div className="bg-gray-100 py-3 px-5 flex flex-col gap-y-3 rounded-lg">
               <div>

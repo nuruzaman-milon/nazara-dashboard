@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -24,6 +25,8 @@ export default function RootLayout({
             </div>
           </>
         )}
+        {/* it use here that we can use toast on any page */}
+        <Toaster position="top-center" reverseOrder={false} />
       </body>
     </html>
   );
