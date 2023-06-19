@@ -5,6 +5,11 @@ interface Contact {
   data: Data[];
 }
 
+export interface ContactByID {
+  status: string;
+  data: Data;
+}
+
 interface Data {
   _id: string;
   message: string;
@@ -30,7 +35,10 @@ export const contactsApi = createApi({
     getContacts: builder.query<Contact, void>({
       query: () => `/api/v1/contact`,
     }),
+    getContactByID: builder.query<ContactByID, string>({
+      query: (id: string) => `/api/v1/contact/${id}`,
+    }),
   }),
 });
 
-export const { useGetContactsQuery } = contactsApi;
+export const { useGetContactsQuery, useGetContactByIDQuery } = contactsApi;
