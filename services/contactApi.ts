@@ -5,7 +5,7 @@ interface Contact {
   data: Data[];
 }
 
-export interface ContactByID {
+interface ContactByID {
   status: string;
   data: Data;
 }
@@ -28,6 +28,12 @@ interface User {
   refund: number;
 }
 
+interface AddContact {
+  message: string;
+  status: string;
+  user: string;
+}
+
 export const contactsApi = createApi({
   reducerPath: "contactsApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000" }),
@@ -38,7 +44,18 @@ export const contactsApi = createApi({
     getContactByID: builder.query<ContactByID, string>({
       query: (id: string) => `/api/v1/contact/${id}`,
     }),
+    addContact: builder.mutation<AddContact, Partial<AddContact>>({
+      query: (body) => ({
+        url: `/api/v1/contact`,
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
-export const { useGetContactsQuery, useGetContactByIDQuery } = contactsApi;
+export const {
+  useGetContactsQuery,
+  useGetContactByIDQuery,
+  useAddContactMutation,
+} = contactsApi;
