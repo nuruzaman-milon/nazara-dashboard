@@ -1,5 +1,6 @@
 "use client";
 import CustomerViewProfileDrawer from "@/components/CustomerViewProfileDrawer";
+import { useGetUserByIdQuery, useGetUsersQuery } from "@/services/userApi";
 import { useState } from "react";
 
 const Customers = () => {
@@ -7,6 +8,15 @@ const Customers = () => {
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
+
+  const { data: allCustomersData, isLoading: allCustomersLoading } =
+    useGetUsersQuery();
+  const { data: singleCustomersData, isLoading: singleCustomersLoading } =
+    useGetUserByIdQuery("6472e4d19eb4c3638c5f7e3f");
+
+  allCustomersData && console.log("getsingleData", allCustomersData);
+  singleCustomersData && console.log("getAllData", singleCustomersData);
+
   return (
     <div className="container">
       <div className="overflow-x-auto">

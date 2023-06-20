@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
-import { store } from "./store";
+import { store } from "../store/store";
 import { Provider } from "react-redux";
 import { Toaster } from "react-hot-toast";
 
