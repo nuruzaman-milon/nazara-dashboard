@@ -1,11 +1,24 @@
+"use client";
 import Product from "@/components/Product";
 import UtilityBtn from "@/components/UtilityBtn";
-import Image from "next/image";
+import {
+  useGetProductByIdQuery,
+  useGetProductsQuery,
+} from "@/services/productApi";
 import Link from "next/link";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsPlus } from "react-icons/bs";
 
 const Products = () => {
+  const { data: allProductsData, isLoading: allProductsLoading } =
+    useGetProductsQuery();
+  const { data: singleProductData, isLoading: singleProductLoading } =
+    useGetProductByIdQuery("649145ae57ee24fc54bb6f99");
+
+  !allProductsLoading && console.log("getAllProductdata", allProductsData);
+  !singleProductLoading &&
+    console.log("getsingleProductdata", singleProductData);
+
   return (
     <div>
       <div className="container">
