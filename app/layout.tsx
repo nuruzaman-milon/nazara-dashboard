@@ -17,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Provider store={store}>
+          <Toaster position="top-center" reverseOrder={false} />
           {router === "/login" ? (
             children
           ) : (
