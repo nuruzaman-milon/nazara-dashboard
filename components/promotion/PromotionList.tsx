@@ -1,70 +1,23 @@
-"use client";
-import CategoryForm from "@/components/Category/CategoryFrom";
-import CategoryList from "@/components/Category/CategoryList";
-import Loader from "@/components/loader";
+import React, { useRef, useState } from "react";
+import { MdDelete } from "react-icons/md";
+import { TbEdit } from "react-icons/tb";
 import {
-  useGetCategoriesQuery,
-  useCreateCategoryMutation,
-  useDeleteCategoryMutation,
-  useUpdateCategoryMutation,
-} from "@/services/categoryApi";
-import React, { useState, ChangeEvent, FormEvent, useRef } from "react";
-import toast from "react-hot-toast";
-import { RxCross2 } from "react-icons/rx";
+  IPromotion,
+  IPromotions,
+  useDeletePromotionMutation,
+  useUpdatePromotionMutation,
+} from "../../services/promotionApi";
 import Swal from "sweetalert2";
+import { toast } from "react-hot-toast";
+import { RxCross2 } from "react-icons/rx";
 
-const Category: React.FC = () => {
-  const { data: CategoriesData, isLoading, refetch } = useGetCategoriesQuery();
-
-  const [createCategory] = useCreateCategoryMutation();
-
-  //handle form for creating new category
-  interface IFormData {
-    _id?: string;
-    name: string;
-    status: string;
-  }
-
-  interface Category {
-    _id: string;
-    name: string;
-    status: string;
-  }
-
-  //crate category start
-  const [formData, setFormData] = useState<IFormData>({
-    name: "",
-    status: "",
-  });
-
-  const handleSubmit = async (event: FormEvent) => {
-    event.preventDefault();
-    // Perform any form validation or data processing here
-    const data = await createCategory(formData);
-    refetch();
-    if (data) {
-      toast.success("New Category Created", { duration: 3000 });
-      // Reset form fields
-      setFormData({
-        name: "",
-        status: "",
-      });
-    }
-  };
-  //crate category end
-
-  const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
-
+const PromotionList: React.FC<IPromotions> = ({
+  data: promotions,
+  refetch,
+}) => {
   //handle delete
-  const [deleteCategory] = useDeleteCategoryMutation();
-  const handleDeleteCategory = async (id: string) => {
+  const [deletePromotion] = useDeletePromotionMutation();
+  const handleDeletePromotion = async (id: string) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -75,9 +28,9 @@ const Category: React.FC = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Your category has been deleted.", "success");
-        const categoryDel = await deleteCategory(id);
-        if (categoryDel) {
+        Swal.fire("Deleted!", "Your Promotion has been deleted.", "success");
+        const promotionDeleted = await deletePromotion(id);
+        if (promotionDeleted) {
           refetch(); // Refetch the user list after deleting a user
         }
       }
@@ -90,10 +43,8 @@ const Category: React.FC = () => {
   ]);
 
   const [selectedValue, setSelectedValue] = useState<string>("");
-  const handleEditCategory = (id: string) => {
-    const filtered: any = CategoriesData?.data?.filter(
-      (item) => item._id === id
-    );
+  const handlePromotionEdit = (id: string) => {
+    const filtered = promotions?.filter((item) => item._id === id);
 
     setFilteredData(filtered);
     setSelectedValue(filtered[0].status);
@@ -103,11 +54,11 @@ const Category: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   //update category start
-  const [updateCategory] = useUpdateCategoryMutation();
+  const [updateCategory] = useUpdatePromotionMutation();
   const nameRef = useRef<HTMLInputElement>(null);
   const statusRef = useRef<HTMLSelectElement>(null);
 
-  const handleUpdateCategorySubmit = async (event: React.FormEvent) => {
+  const handleUpdatePromotionSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
     if (nameRef.current && statusRef.current) {
@@ -137,34 +88,54 @@ const Category: React.FC = () => {
     }
   };
 
-  if (isLoading) return <Loader height="h-[90vh]" />;
-
   return (
-    <div className="flex gap-10 container">
-      {/* show all category  */}
+    <>
       <div className="flex-[6] overflow-x-auto">
-        <h1 className="text-lg font-semibold mb-2">All Categories</h1>
-        {CategoriesData ? (
-          <CategoryList
-            categories={CategoriesData.data as Category[]} // Convert ICategory[] to Category[]
-            handleEditCategory={handleEditCategory}
-            handleDeleteCategory={handleDeleteCategory}
-          />
-        ) : (
-          <Loader height="h-[90vh]" />
-        )}
+        <h1 className="text-lg font-semibold mb-2">All Promotions</h1>
+        <table className="table bg-basic">
+          <thead>
+            <tr>
+              <th>SL</th>
+              <th>Promotion Name</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {promotions.map((promotion: IPromotion, index: number) => (
+              <tr key={promotion._id}>
+                <td>{index + 1}</td>
+                <td>{promotion.name}</td>
+                <td
+                  className={`font-medium ${
+                    promotion.status === "Draft"
+                      ? "text-red-600"
+                      : "text-green-600"
+                  }`}
+                >
+                  {promotion.status}
+                </td>
+                <td>
+                  <div className="flex">
+                    <label
+                      onClick={() => handlePromotionEdit(promotion._id)}
+                      className="cursor-pointer"
+                      htmlFor="modal-handle"
+                    >
+                      <TbEdit color="green" size={20} />
+                    </label>
+                    <button
+                      onClick={() => handleDeletePromotion(promotion._id)}
+                    >
+                      <MdDelete color="red" size={20} />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-
-      {/* add new category  */}
-      <div className="flex-[3]">
-        <h1 className="text-lg font-semibold mb-2">Add New Category</h1>
-        <CategoryForm
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-          formData={formData}
-        />
-      </div>
-
       {isOpen && (
         <>
           {/* modal code start  */}
@@ -181,16 +152,16 @@ const Category: React.FC = () => {
                 </label>
                 <div className="flex-[3]">
                   <h1 className="text-lg font-semibold mb-2 ml-3">
-                    Update Category
+                    Update Promotion
                   </h1>
 
                   <form
-                    onSubmit={handleUpdateCategorySubmit}
+                    onSubmit={handleUpdatePromotionSubmit}
                     className="bg-white p-3 flex flex-col gap-y-3 rounded-xl"
                   >
                     <div>
                       <label className="font-medium" htmlFor="name">
-                        Category Name:
+                        Promotion Name:
                       </label>
                       <input
                         className="block w-full p-2 border border-gray-400 focus:outline-none text-gray-500 mt-1"
@@ -232,8 +203,8 @@ const Category: React.FC = () => {
           {/* modal code end  */}
         </>
       )}
-    </div>
+    </>
   );
 };
 
-export default Category;
+export default PromotionList;
