@@ -35,10 +35,12 @@ export const categoriesApi = createApi({
           },
         }),
         // Update the cache after successful creation
-        onSuccess: async (data, { dispatch }) => {
+        async onQueryStarted(_, { dispatch, queryFulfilled }) {
+          await queryFulfilled; // Wait for the query to be fulfilled
           await dispatch(categoriesApi.endpoints.getCategories.initiate()); // Fetch the updated category list
         },
       }),
+      
       updateCategory: builder.mutation<IData, { id: string, payload: Partial<IData> }>({
         query: ({ id, payload }) => ({
           url: `/api/v1/category/${id}`,
@@ -48,8 +50,9 @@ export const categoriesApi = createApi({
             'Content-type': 'application/json; charset=UTF-8',
           },
         }),
-        // Update the cache after successful update
-        onSuccess: async (data, { dispatch }) => {
+        // Update the cache after successful creation
+        async onQueryStarted(data:any, { dispatch, queryFulfilled }) {
+          await queryFulfilled; // Wait for the query to be fulfilled
           await dispatch(categoriesApi.endpoints.getCategoryById.initiate(data._id)); // Fetch the updated category
           await dispatch(categoriesApi.endpoints.getCategories.initiate()); // Fetch the updated category list
         },
