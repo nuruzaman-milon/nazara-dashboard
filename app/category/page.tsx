@@ -15,20 +15,6 @@ import { TbEdit } from "react-icons/tb";
 import Swal from "sweetalert2";
 
 const Category: React.FC = () => {
-  //show success toast
-  const showSuccessToast = () => {
-    toast.success("Category updated!", {
-      duration: 3000, // Duration for which the toast is shown (in milliseconds)
-    });
-  };
-
-  //show create success toast
-  const showCreateSuccessToast = () => {
-    toast.success("Promotion Created!", {
-      duration: 3000, // Duration for which the toast is shown (in milliseconds)
-    });
-  };
-
   const { data: CategoriesData, isLoading, refetch } = useGetCategoriesQuery();
 
   const [createCategory] = useCreateCategoryMutation();
@@ -145,12 +131,7 @@ const Category: React.FC = () => {
     }
   };
 
-  if (isLoading)
-    return (
-      <div className="h-[90vh]">
-        <Loader />
-      </div>
-    );
+  if (isLoading) return <Loader height="h-[90vh]" />;
 
   return (
     <div className="flex gap-10 container">

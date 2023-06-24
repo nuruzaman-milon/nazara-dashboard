@@ -1,11 +1,15 @@
-import { SyncLoader } from "react-spinners";
+import { ScaleLoader } from "react-spinners";
 
 import React from "react";
 
-const Loader = () => {
+interface Props {
+  height: string;
+}
+
+const Loader: React.FC<Props> = ({ height }) => {
   return (
-    <div className={`flex justify-center items-center w-full`}>
-      <SyncLoader color="#820000" size={16} margin={5} />
+    <div className={`flex justify-center items-center w-full ${height}`}>
+      <ScaleLoader color="#820000" margin={5} speedMultiplier={1.5} width={5} />
     </div>
   );
 };
