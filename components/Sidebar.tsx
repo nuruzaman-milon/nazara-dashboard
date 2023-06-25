@@ -52,6 +52,12 @@ const Sidebar = () => {
       icon: <MdCategory size={18} />,
     },
     {
+      _id: "204",
+      title: "SubCategory",
+      link: "/subcategory",
+      icon: <MdCategory size={18} />,
+    },
+    {
       _id: "104",
       title: "Products",
       link: "/products",

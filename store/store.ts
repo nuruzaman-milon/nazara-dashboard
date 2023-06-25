@@ -6,6 +6,7 @@ import { productsApi } from "@/services/productApi";
 import  productSlice  from "@/store/slice/productSlice";
 import { promotionsApi } from "@/services/promotionApi";
 import { warehouseApi } from "@/services/warehouseApi";
+import { subCategoriesApi } from "@/services/subcategory";
 
 export const store = configureStore({
   reducer: {
@@ -16,10 +17,11 @@ export const store = configureStore({
     [productsApi.reducerPath]: productsApi.reducer,
     [promotionsApi.reducerPath]: promotionsApi.reducer,
     [warehouseApi.reducerPath]: warehouseApi.reducer,
+    [subCategoriesApi.reducerPath]: subCategoriesApi.reducer,
     products: productSlice,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(warehouseApi.middleware).concat(promotionsApi.middleware).concat(contactsApi.middleware).concat(categoriesApi.middleware).concat(usersApi.middleware).concat(productsApi.middleware),
+    getDefaultMiddleware().concat(subCategoriesApi.middleware).concat(warehouseApi.middleware).concat(promotionsApi.middleware).concat(contactsApi.middleware).concat(categoriesApi.middleware).concat(usersApi.middleware).concat(productsApi.middleware),
 });
