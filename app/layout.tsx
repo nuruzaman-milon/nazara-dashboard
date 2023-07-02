@@ -18,7 +18,7 @@ export default function RootLayout({
       <body>
         <Provider store={store}>
           <Toaster position="top-center" reverseOrder={false} />
-          {router === "/login" ? (
+          {router === "/nazara-admin" ? (
             children
           ) : (
             <>
